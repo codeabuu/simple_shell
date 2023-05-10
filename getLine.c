@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * input_buf - buffers chained commands
+ * input_buffer - buffers chained commands
  * @info: parameter struct
  * @buf: address of buffer
  * @len: address of len var
@@ -15,7 +15,6 @@ ssize_t input_buffer(info_t *info, char **buf, size_t *len)
 
 	if (!*len) /* if nothing left in the buffer, fill it */
 	{
-		/*bfree((void **)info->cmd_buf);*/
 		free(*buf);
 		*buf = NULL;
 		signal(SIGINT, sigintHandler);
@@ -90,7 +89,7 @@ ssize_t get_input(info_t *info)
 }
 
 /**
- * read_buf - reads a buffer
+ * read_buffer - reads a buffer
  * @info: parameter struct
  * @buf: buffer
  * @i: size
@@ -112,7 +111,7 @@ ssize_t read_buffer(info_t *info, char *buf, size_t *i)
 /**
  * _getline - gets the next line of input from STDIN
  * @info: parameter struct
- * @ptr: address of pointer to buffer, preallocated or NULL
+ * @pointer: address of pointer to buffer, preallocated or NULL
  * @length: size of preallocated ptr buffer if not NULL
  *
  * Return: s
@@ -168,4 +167,3 @@ void sigintHandler(__attribute__((unused))int sig_num)
 	_puts("$ ");
 	_putchar(BUF_FLUSH);
 }
-
