@@ -59,7 +59,7 @@ int _mysetenviron(info_t *info)
 *        constant function prototype.
 * Return: Always 0
 */
-int _myunsetenv(info_t *info)
+int _myunsetenviron(info_t *info)
 {
 	int i;
 

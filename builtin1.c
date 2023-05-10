@@ -9,7 +9,7 @@
  */
 int _myprev(info_t *info)
 {
-	print_list(info->prev);
+	print_list(info->history);
 	return (0);
 }
 
@@ -26,7 +26,7 @@ int unset_alias(info_t *info, char *str)
 	int ret;
 
 	p = _strchr(str, '=');
-	if (!p)g
+	if (!p)
 		return (1);
 	c = *p;
 	*p = 0;

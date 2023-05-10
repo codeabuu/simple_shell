@@ -151,7 +151,7 @@ char **strtow(char *, char *);
 char **strtow2(char *, char);
 
 /* toem_realloc.c */
-char *_memset(char *, char, unsigned int);
+char *_setmem(char *, char, unsigned int);
 void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
@@ -212,7 +212,7 @@ int renumber_history(info_t *info);
 /* toem_lists.c */
 list_t *add_node(list_t **, const char *, int);
 list_t *add_node_end(list_t **, const char *, int);
-size_t print_list_str(const list_t *);
+size_t print_ls_string(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
 
@@ -227,7 +227,7 @@ ssize_t get_node_index(list_t *, list_t *);
 int is_chain(info_t *, char *, size_t *);
 void check_chain(info_t *, char *, size_t *, size_t, size_t);
 int replace_alias(info_t *);
-int replace_vars(info_t *);
-int replace_string(char **, char *);
+int replace_variables(info_t *);
+int replace_str(char **, char *);
 
 #endif
