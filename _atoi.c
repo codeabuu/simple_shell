@@ -12,10 +12,9 @@ int interact(info_t *info)
 }
 
 /**
-* is_delimeter - check if character
-* is a delimeter
+* is_delimeter - check if char is delimeter
 * @c: the char to check
-* @delimeter: the delimeter string
+* @delim: the delimeter string
 * Return: 1 if true, 0 if false
 */
 int is_delimeter(char c, char *delim)
