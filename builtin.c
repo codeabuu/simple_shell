@@ -7,14 +7,14 @@
 * Return: exits with a given exit status
 * (0) if info.argv[0] != "exit"
 */
-int _myexit(info_t *info)
+int _myquit(info_t *info)
 {
-	int exitcheck;
+	int exitconfirm;
 
 	if (info->argv[1]) /* If there is an exit arguement */
 	{
-		exitcheck = _erratoi(info->argv[1]);
-		if (exitcheck == -1)
+		exitconfirm = _erratoi(info->argv[1]);
+		if (exitconfirm == -1)
 		{
 			info->status = 2;
 			print_error(info, "Illegal number: ");
@@ -35,7 +35,7 @@ int _myexit(info_t *info)
 * constant function prototype.
 * Return: Always 0
 */
-int _mycd(info_t *info)
+int _mycdir(info_t *info)
 {
 	char *s, *dir, buffer[1024];
 	int chdir_ret;
@@ -85,7 +85,7 @@ int _mycd(info_t *info)
 * constant function prototype.
 * Return: Always 0
 */
-int _myhelp(info_t *info)
+int _myassist(info_t *info)
 {
 	char **arg_array;
 

@@ -7,9 +7,9 @@
  *        constant function prototype.
  *  Return: Always 0
  */
-int _myhistory(info_t *info)
+int _myprev(info_t *info)
 {
-	print_list(info->history);
+	print_list(info->prev);
 	return (0);
 }
 
@@ -26,7 +26,7 @@ int unset_alias(info_t *info, char *str)
 	int ret;
 
 	p = _strchr(str, '=');
-	if (!p)
+	if (!p)g
 		return (1);
 	c = *p;
 	*p = 0;

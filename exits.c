@@ -7,15 +7,15 @@
  *@n: the amount of characters to be copied
  *Return: the concatenated string
  */
-char *_strncpy(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *source, int n)
 {
 	int i, j;
 	char *s = dest;
 
 	i = 0;
-	while (src[i] != '\0' && i < n - 1)
+	while (source[i] != '\0' && i < n - 1)
 	{
-		dest[i] = src[i];
+		dest[i] = source[i];
 		i++;
 	}
 	if (i < n)
@@ -37,7 +37,7 @@ char *_strncpy(char *dest, char *src, int n)
  *@n: the amount of bytes to be maximally used
  *Return: the concatenated string
  */
-char *_strncat(char *dest, char *src, int n)
+char *_strncat(char *dest, char *source, int n)
 {
 	int i, j;
 	char *s = dest;
@@ -46,9 +46,9 @@ char *_strncat(char *dest, char *src, int n)
 	j = 0;
 	while (dest[i] != '\0')
 		i++;
-	while (src[j] != '\0' && j < n)
+	while (source[j] != '\0' && j < n)
 	{
-		dest[i] = src[j];
+		dest[i] = source[j];
 		i++;
 		j++;
 	}

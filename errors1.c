@@ -6,26 +6,26 @@
 * Return: 0 if no numbers in string, converted number otherwise
 *       -1 on error
 */
-int _erratoi(char *s)
+int _eratoi(char *s)
 {
 	int i = 0;
-	unsigned long int result = 0;
+	unsigned long int rslt = 0;
 
 	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
+		s++;
 	for (i = 0;  s[i] != '\0'; i++)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
-			result *= 10;
-			result += (s[i] - '0');
-			if (result > INT_MAX)
+			rslt *= 10;
+			rslt += (s[i] - '0');
+			if (rslt > INT_MAX)
 				return (-1);
 		}
 		else
 			return (-1);
 	}
-	return (result);
+	return (rslt);
 }
 
 /**
@@ -35,7 +35,7 @@ int _erratoi(char *s)
 * Return: 0 if no numbers in string, converted number otherwise
 *        -1 on error
 */
-void print_error(info_t *info, char *estr)
+void print_err(info_t *info, char *estr)
 {
 	_eputs(info->fname);
 	_eputs(": ");
@@ -93,7 +93,7 @@ int print_d(int input, int fd)
 *
 * Return: string
 */
-char *convert_number(long int num, int base, int flags)
+char *conv_no(long int num, int base, int flags)
 {
 	static char *array;
 	static char buffer[50];
@@ -127,7 +127,7 @@ char *convert_number(long int num, int base, int flags)
 *
 * Return: Always 0;
 */
-void remove_comments(char *buf)
+void rm_comments(char *buf)
 {
 	int i;
 
