@@ -7,15 +7,15 @@
  *
  * Return: pointer to destination
  */
-char *_strcpy(char *dest, char *src)
+char *_strcpy(char *dest, char *source)
 {
 	int i = 0;
 
-	if (dest == src || src == 0)
+	if (dest == source || source == 0)
 		return (dest);
-	while (src[i])
+	while (source[i])
 	{
-		dest[i] = src[i];
+		dest[i] = source[i];
 		i++;
 	}
 	dest[i] = 0;
@@ -85,4 +85,3 @@ int _putchar(char c)
 		buf[i++] = c;
 	return (1);
 }
-

@@ -117,8 +117,8 @@ void fork_cmd(info_t *);
 
 /* toem_parser.c */
 int is_cmd(info_t *, char *);
-char *dup_chars(char *, int, int);
-char *find_path(info_t *, char *, char *);
+char *duplicate_chars(char *, int, int);
+char *find_route(info_t *, char *, char *);
 
 /* loophsh.c */
 int loophsh(char **);
@@ -159,25 +159,25 @@ void *_realloc(void *, unsigned int, unsigned int);
 int bfree(void **);
 
 /* toem_atoi.c */
-int interactive(info_t *);
-int is_delim(char, char *);
+int interact(info_t *);
+int is_delimeter(char, char *);
 int _isalpha(int);
 int _atoi(char *);
 
 /* toem_errors1.c */
-int _erratoi(char *);
-void print_error(info_t *, char *);
+int _eratoi(char *);
+void print_err(info_t *, char *);
 int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+char *conv_no(long int, int, int);
+void rm_comments(char *);
 
 /* toem_builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int _myquit(info_t *);
+int _mycdir(info_t *);
+int _myassist(info_t *);
 
 /* toem_builtin1.c */
-int _myhistory(info_t *);
+int _myprev(info_t *);
 int _myalias(info_t *);
 
 /*toem_getline.c */
@@ -186,15 +186,15 @@ int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
 
 /* toem_getinfo.c */
-void clear_info(info_t *);
-void set_info(info_t *, char **);
-void free_info(info_t *, int);
+void clear_data(info_t *);
+void set_data(info_t *, char **);
+void free_data(info_t *, int);
 
 /* toem_environ.c */
-char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
+char *_getenviron(info_t *, const char *);
+int _myenvironment(info_t *);
+int _mysetenviron(info_t *);
+int _myunsetenviron(info_t *);
 int populate_env_list(info_t *);
 
 /* toem_getenv.c */

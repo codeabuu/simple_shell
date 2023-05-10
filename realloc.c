@@ -7,7 +7,7 @@
  * @n: the amount of bytes to be filled
  * Return: (s) a pointer to the memory area s
  */
-char *_memset(char *s, char b, unsigned int n)
+char *_setmem(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
@@ -39,16 +39,16 @@ void ffree(char **pp)
  *
  * Return: pointer to da ol'block nameen.
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size)
 {
 	char *p;
 
-	if (!ptr)
+	if (!pointer)
 		return (malloc(new_size));
 	if (!new_size)
 		return (free(ptr), NULL);
 	if (new_size == old_size)
-		return (ptr);
+		return (pointer);
 
 	p = malloc(new_size);
 	if (!p)
@@ -56,8 +56,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	old_size = old_size < new_size ? old_size : new_size;
 	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
-	free(ptr);
+		p[old_size] = ((char *)pointer)[old_size];
+	free(pointer);
 	return (p);
 }
-

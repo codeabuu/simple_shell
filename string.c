@@ -62,14 +62,14 @@ char *starts_with(const char *haystack, const char *needle)
 *
 * Return: pointer to destination buffer
 */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *dest, char *source)
 {
 	char *ret = dest;
 
 	while (*dest)
 		dest++;
-	while (*src)
-		*dest++ = *src++;
-	*dest = *src;
+	while (*source)
+		*dest++ = *source++;
+	*dest = *source;
 	return (ret);
 }
