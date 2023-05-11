@@ -58,7 +58,7 @@ void print_err(info_t *info, char *estr)
 int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
-	int i, count = 0;
+	int i = 1000000000, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
@@ -72,14 +72,16 @@ int print_d(int input, int fd)
 	else
 		_abs_ = input;
 	current = _abs_;
-	for (i = 1000000000; i > 1; i /= 10)
+	
+	while (i > 1)
 	{
-		if (_abs_ / i)
-		{
-			__putchar('0' + current / i);
-			count++;
-		}
-		current %= i;
+	if (_abs_ / i)
+	{
+	__putchar('0' + current / i);
+	count++;
+	}
+	current %= i;
+	i /= 10;
 	}
 	__putchar('0' + current);
 	count++;
@@ -131,12 +133,15 @@ char *conv_no(long int num, int base, int flags)
 */
 void rm_comments(char *buf)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; buf[i] != '\0'; i++)
+	while (buf[i] != '\0')
+	{
 		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
 		{
 			buf[i] = '\0';
 			break;
 		}
+		i++;
+	}
 }
