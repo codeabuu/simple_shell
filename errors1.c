@@ -72,7 +72,7 @@ int print_d(int input, int fd)
 	else
 		_abs_ = input;
 	current = _abs_;
-	
+
 	while (i > 1)
 	{
 	if (_abs_ / i)
