@@ -8,17 +8,14 @@
  */
 void _eputs(char *str)
 {
-	int i = 0;
-
+	int i;
 	if (!str)
 		return;
-	while (str[i] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		_eputchar(str[i]);
-		i++;
+	_eputchar(str[i]);
 	}
 }
-
 /**
  * _eputchar - writes the character c to stderr
  * @c: The character to print
@@ -73,13 +70,15 @@ int _putfd(char c, int fd)
  */
 int _putsfd(char *str, int fd)
 {
-	int i = 0;
-
+	int i;
 	if (!str)
-		return (0);
-	while (*str)
+		return 0;
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		i += _putfd(*str++, fd);
+	i += _putfd(str[i], fd);
 	}
-	return (i);
+
+	return i;
 }
+

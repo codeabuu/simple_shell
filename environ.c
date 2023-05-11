@@ -47,11 +47,11 @@ int _mysetenviron(info_t *info)
 		_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (!_setenv(info, info->argv[1], info->argv[2]))
+	if (_setenv(info, info->argv[1], info->argv[2]))
 	{
-		return (1);
+		return (0);
 	}
-	return (0);
+	return (1);
 }
 
 /**
@@ -62,7 +62,7 @@ int _mysetenviron(info_t *info)
 */
 int _myunsetenviron(info_t *info)
 {
-	int i;
+	int i = 1;
 
 	if (info->argc == 1)
 	{
