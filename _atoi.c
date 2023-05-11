@@ -48,31 +48,40 @@ int _isalpha(int c)
 * @s: the string to be converted
 * Return: 0 if no numbers in string, converted number otherwise
 */
-
 int _atoi(char *s)
 {
-	int i, sign = 1, flag = 0, output;
-	unsigned int rslt = 0;
+int i = 0, sign = 1;
+int flag = 0, output = 0;
+unsigned int rslt = 0;
 
-	for (i = 0; s[i] != '\0' && flag != 2; i++)
+while (s[i] != '\0' && flag != 2)
+{
+if (s[i] == '-')
 	{
-		if (s[i] == '-')
-			sign *= -1;
-
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			flag = 1;
-			rslt *= 10;
-			rslt += (s[i] - '0');
-		}
-		else if (flag == 1)
-			flag = 2;
-	}
-
-	if (sign == -1)
-		output = -rslt;
-	else
-		output = rslt;
-
-	return (output);
+sign *= -1;
 }
+if (s[i] >= '0' && s[i] <= '9')
+	{
+flag = 1;
+rslt *= 10;
+rslt += (s[i] - '0');
+}
+else if (flag == 1)
+{
+flag = 2;
+}
+i++;
+}
+
+if (sign == -1)
+{
+output = -rslt;
+}
+else
+{
+output = rslt;
+}
+
+return (output);
+}
+
