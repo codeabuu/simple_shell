@@ -12,11 +12,9 @@ char *_strncpy(char *dest, char *source, int n)
 	int i, j;
 	char *s = dest;
 
-	i = 0;
-	while (source[i] != '\0' && i < n - 1)
+	for(i = 0; source[i] != '\0' && i < n - 1; i++)
 	{
 		dest[i] = source[i];
-		i++;
 	}
 	if (i < n)
 	{
@@ -43,14 +41,12 @@ char *_strncat(char *dest, char *source, int n)
 	char *s = dest;
 
 	i = 0;
-	j = 0;
 	while (dest[i] != '\0')
 		i++;
-	while (source[j] != '\0' && j < n)
+	for (j = 0; source[j] != '\0' && j < n; j++)
 	{
 		dest[i] = source[j];
 		i++;
-		j++;
 	}
 	if (j < n)
 		dest[i] = '\0';
