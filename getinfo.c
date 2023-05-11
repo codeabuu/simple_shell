@@ -34,8 +34,10 @@ void set_data(info_t *info, char **av)
 				info->argv[1] = NULL;
 			}
 		}
-		for (i = 0; info->argv && info->argv[i]; i++)
-			;
+		while (info->argv && info->argv[i])
+		{
+			i++;
+		}
 		info->argc = i;
 
 		replace_alias(info);

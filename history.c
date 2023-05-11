@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * get_history_file - gets the history file
- * @info: parameter struct
+ * get_history_file - will get history file
+ * @info: parameter structure
  *
- * Return: allocated string containg history file
+ * Return: allocated str containg history file
  */
 
 char *get_history_file(info_t *info)
@@ -131,14 +131,14 @@ int build_history_list(info_t *info, char *buf, int linecount)
  */
 int renumber_history(info_t *info)
 {
-	list_t *node = info->history;
-	int i = 0;
+	list_t *node;
+	int i;
 
-	while (node)
+	for (node = info->history, i = 0; node; node = node->next, i++ )
 	{
-		node->num = i++;
-		node = node->next;
+		node->num = i;
 	}
-	return (info->histcount = i);
+	info->histcount = i;
+	return (i);
 }
 
