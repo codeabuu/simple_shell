@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
-* interact - returns true if shell is interactive mode
-* @info: struct address
+* interact - will return true if shell is interactive mode
+* @info: struct addr
 *
-* Return: 1 if interact mode, 0 otherwise
+* Return: 1 if interact mode, else 0
 */
 int interact(info_t *info)
 {
@@ -13,20 +13,24 @@ int interact(info_t *info)
 
 /**
 * is_delimeter - check if char is delimeter
-* @c: the char to check
-* @delim: the delimeter string
-* Return: 1 if true, 0 if false
+* @c: char to check
+* @delim: delimeter str
+* Return: 1 if true, 0 is false
 */
 int is_delimeter(char c, char *delim)
 {
-	while (*delim)
-		if (*delim++ == c)
-			return (1);
-	return (0);
+while (*delim != '\0')
+{
+if (*delim == c)
+{
+return (1);
 }
-
+delim++;
+}
+return (0);
+}
 /**
-* _isalpha - checks for alphabetic character
+* _isalpha - check for alpha chars
 * @c: The character to input
 * Return: 1 if c is alphabetic, 0 otherwise
 */
