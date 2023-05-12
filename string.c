@@ -12,7 +12,10 @@ int _strlen(char *s)
 
 	if (!s)
 		return (0);
-	for (i = 0; s[i] != '\0'; i++);
+
+	for (i = 0; s[i] != '\0'; i++)
+		;
+
 	return (i);
 }
 
@@ -64,7 +67,7 @@ char *_strcat(char *dest, char *source)
 	}
 	for (; *source; ++source, ++dest)
 	{
-        *dest = *source;
+		*dest = *source;
 	}
 	*dest = '\0';
 	
