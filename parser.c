@@ -33,11 +33,16 @@ int is_cmd(info_t *info, char *path)
 char *duplicate_chars(char *pathstr, int start, int stop)
 {
 	static char buf[1024];
-	int i = 0, k = 0;
+	int i = 0;
+	int k;
 
 	for (k = 0, i = start; i < stop; i++)
+	{
 		if (pathstr[i] != ':')
+		{
 			buf[k++] = pathstr[i];
+		}
+	}
 	buf[k] = 0;
 	return (buf);
 }
@@ -52,7 +57,8 @@ char *duplicate_chars(char *pathstr, int start, int stop)
 */
 char *find_route(info_t *info, char *pathstr, char *cmd)
 {
-	int i = 0, curr_pos = 0;
+	int i = 0;
+	int curr_pos = 0;
 	char *path;
 
 	if (!pathstr)

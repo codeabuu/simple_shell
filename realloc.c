@@ -9,10 +9,13 @@
  */
 char *_setmem(char *s, char b, unsigned int n)
 {
-	unsigned int i;
+	unsigned int i = 0;
 
-	for (i = 0; i < n; i++)
-		s[i] = b;
+	while (i < n)
+	{
+	s[i] = b;
+	i++;
+	}
 	return (s);
 }
 
@@ -26,8 +29,10 @@ void ffree(char **pp)
 
 	if (!pp)
 		return;
-	while (*pp)
-		free(*pp++);
+	for (; *pp; pp++)
+	{
+		free(*pp);
+	}
 	free(a);
 }
 
