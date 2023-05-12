@@ -8,13 +8,11 @@
 */
 int _strlen(char *s)
 {
-	int i = 0;
+	int i;
 
 	if (!s)
 		return (0);
-
-	while (*s++)
-		i++;
+	for (i = 0; s[i] != '\0'; i++);
 	return (i);
 }
 
@@ -27,13 +25,8 @@ int _strlen(char *s)
 */
 int _strcmp(char *s1, char *s2)
 {
-	while (*s1 && *s2)
-	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-	}
+	for (; *s1 && *s2 && (*s1 == *s2); s1++, s2++)
+		;
 	if (*s1 == *s2)
 		return (0);
 	else
@@ -66,10 +59,14 @@ char *_strcat(char *dest, char *source)
 {
 	char *ret = dest;
 
-	while (*dest)
-		dest++;
-	while (*source)
-		*dest++ = *source++;
-	*dest = *source;
+	for (; *dest; ++dest)
+	{
+	}
+	for (; *source; ++source, ++dest)
+	{
+        *dest = *source;
+	}
+	*dest = '\0';
+	
 	return (ret);
 }
