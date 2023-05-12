@@ -23,3 +23,10 @@ All of the following files are programs written in C:
 | `3. Simple shell 0.3` | Write a function that adds a new node at the end of a list_t list.|
 | ` 4. Simple shell 0.4` | Simple shell 0.3 +|
 | ` 5. Simple shell 1.0` | Implement the env built-in, that prints the current environment.|
+| ` 6. Simple shell 0.1.1` | Write your own getline function, use a buffer to read many chars at once call the least possible the read system call. |
+| ` 7. Simple shell 0.2.1` | Simple shell 0.2 +.|
+| ` 8. Simple shell 0.4.1` | Simple shell 0.4 +; handle arguments for the built-in exit; Usage: exit status, where status is an integer used to exit the shell. |
+| ` 9. Setenv, unsetenv` | Implement the setenv and unsetenv builtin commands.|
+| ` 10. cd` | Implement the builtin command cd:|
+| ` 11. ;` | Simple shell 1.0 +. Handle the command seperator|
+| ` 12. && and ||` | Handle the && and || shell logical operators.|
