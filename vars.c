@@ -11,28 +11,45 @@
 int is_chain(info_t *info, char *buf, size_t *p)
 {
 	size_t j = *p;
+	int found = 0;
 
-	if (buf[j] == '|' && buf[j + 1] == '|')
+	switch (buf[j])
 	{
-		buf[j] = 0;
-		j++;
-		info->cmd_buf_type = CMD_OR;
+		case '|':
+			if (buf[j + 1] == '|')
+			{
+				buf[j] = 0;
+				j++;
+				info->cmd_buf_type = CMD_OR;
+				found = 1;
+			}
+			break;
+		case '&':
+			if (buf[j + 1] == '&')
+			{
+				buf[j] = 0;
+				j++;
+				info->cmd_buf_type = CMD_AND;
+				found = 1;
+			}
+			break;
+		case ';':
+			buf[j] = 0;
+			info->cmd_buf_type = CMD_CHAIN;
+			found = 1;
+			break;
+		default:
+			break;
 	}
-	else if (buf[j] == '&' && buf[j + 1] == '&')
+	if (found)
 	{
-		buf[j] = 0;
-		j++;
-		info->cmd_buf_type = CMD_AND;
-	}
-	else if (buf[j] == ';')
-	{
-		buf[j] = 0;
-		info->cmd_buf_type = CMD_CHAIN;
+		*p = j;
+		return (1);
 	}
 	else
+	{
 		return (0);
-	*p = j;
-	return (1);
+	}
 }
 
 /**
@@ -77,7 +94,7 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
  */
 int replace_alias(info_t *info)
 {
-	int i;
+	int i = 0;
 	list_t *node;
 	char *p;
 
@@ -106,7 +123,7 @@ int replace_alias(info_t *info)
  */
 int replace_variables(info_t *info)
 {
-	int i = 0;
+	int i;
 	list_t *node;
 
 	for (i = 0; info->argv[i]; i++)
@@ -140,11 +157,11 @@ int replace_variables(info_t *info)
 }
 
 /**
- * replace_str - replaces string
- * @old: address of old string
- * @new: new string
+ * replace_str - replace string
+ * @old: add of old str
+ * @new: new str
  *
- * Return: 1 if replaced, 0 otherwise
+ * Return: 1 if replaced
  */
 int replace_str(char **old, char *new)
 {
