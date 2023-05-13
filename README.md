@@ -30,3 +30,6 @@ All of the following files are programs written in C:
 | ` 10. cd` | Implement the builtin command cd:|
 | ` 11. ;` | Simple shell 1.0 +. Handle the command seperator|
 | ` 12. && and ||` | Handle the && and || shell logical operators.|
+| ' 13. alias - Simple shell 1.0+ | Implement the alias builtin command; Usage: alias [name[='value']...].|
+| ' 14. Variables - Handles variable replacement, Handle the $? variable, Handle the $$ variable|
+| ' 15. Comments - A program that handles comments (#) using simple shell 1.0+ Git repository: simple shell. |
