@@ -2,7 +2,7 @@
 
 /**
 * get_history_file - will get history file
-* @info: parameter structure
+* @info: parameter struct
 *
 * Return: allocated str containg history file
 */
@@ -25,7 +25,7 @@ char *get_history_file(info_t *info)
 }
 
 /**
-* write_history - creates a file, or appends to an existing file
+* write_history - create a file, or will append to an existing file
 * @info: the parameter struct
 *
 * Return: 1 on success, else -1
@@ -43,10 +43,12 @@ int write_history(info_t *info)
 	free(filename);
 	if (fd == -1)
 		return (-1);
-	for (node = info->history; node; node = node->next)
+	node = info->history;
+	while (node != NULL)
 	{
 		_putsfd(node->str, fd);
 		_putfd('\n', fd);
+		node = node->next;
 	}
 	_putfd(BUF_FLUSH, fd);
 	close(fd);
