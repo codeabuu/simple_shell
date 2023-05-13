@@ -33,3 +33,4 @@ All of the following files are programs written in C:
 | ' 13. alias - Simple shell 1.0+ | Implement the alias builtin command; Usage: alias [name[='value']...].|
 | ' 14. Variables - Handles variable replacement, Handle the $? variable, Handle the $$ variable|
 | ' 15. Comments - A program that handles comments (#) using simple shell 1.0+ Git repository: simple shell. |
+| ' 16. File as Input - Usage: simple_shell [filename]; Your shell can take a file as command line argument. The file contains all commands line arguement; The file contains all the commands that your shell should run before exiting; The file should contain one commanf line; in this mode, the shell should not print a promptand should not read from stdin |
