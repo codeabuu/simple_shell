@@ -70,6 +70,6 @@ char *_strcat(char *dest, char *source)
 		*dest = *source;
 	}
 	*dest = '\0';
-	
+
 	return (ret);
 }
