@@ -19,7 +19,6 @@ char **strtow(char *str, char *d)
 	for (i = 0; str[i] != '\0'; i++)
 		if (!is_delimeter(str[i], d) && (is_delimeter(str[i + 1], d) || !str[i + 1]))
 			no_words++;
-
 	if (no_words == 0)
 		return (NULL);
 	s = malloc((1 + no_words) * sizeof(char *));
@@ -27,16 +26,19 @@ char **strtow(char *str, char *d)
 		return (NULL);
 	for (i = 0, j = 0; j < no_words; j++)
 	{
-		while (is_delimeter(str[i], d))
-			i++;
-		k = 0;
-		while (!is_delimeter(str[i + k], d) && str[i + k])
-			k++;
+		for (; is_delimeter(str[i], d); i++)
+			;
+		for (k = 0; !is_delimeter(str[i + k], d) && str[i + k]; k++)
+			;
 		s[j] = malloc((k + 1) * sizeof(char));
 		if (!s[j])
 		{
-			for (k = 0; k < j; k++)
+			k = 0;
+			while (k < j)
+			{
 				free(s[k]);
+				k++;
+			}
 			free(s);
 			return (NULL);
 		}
@@ -72,11 +74,10 @@ char **strtow2(char *str, char d)
 		return (NULL);
 	for (i = 0, j = 0; j < no_words; j++)
 	{
-		while (str[i] == d && str[i] != d)
-			i++;
-		k = 0;
-		while (str[i + k] != d && str[i + k] && str[i + k] != d)
-			k++;
+		for (i = 0; str[i] == d && str[i] != d; i++)
+			;
+		for (k = 0; str[i + k] != d && str[i + k] && str[i + k] != d; k++)
+			;
 		s[j] = malloc((k + 1) * sizeof(char));
 		if (!s[j])
 		{
@@ -85,8 +86,12 @@ char **strtow2(char *str, char d)
 			free(s);
 			return (NULL);
 		}
-		for (m = 0; m < k; m++)
+		m = 0;
+		while (m < k)
+		{
 			s[j][m] = str[i++];
+			m++;
+		}
 		s[j][m] = 0;
 	}
 	s[j] = NULL;
