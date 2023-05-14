@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
-* _eratoi - converts a string to an integer
-* @s: the string to be converted
-* Return: 0 if no numbers in string, converted number otherwise
+* _eratoi - conva str to an int
+* @s: str to be converted
+* Return: 0 if no numbers in str, convert number otherwise
 *       -1 on error
 */
 int _eratoi(char *s)
@@ -13,7 +13,7 @@ int _eratoi(char *s)
 
 	if (*s == '+')
 		s++;
-
+	i = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] >= '0' && s[i] <= '9')
@@ -31,10 +31,10 @@ int _eratoi(char *s)
 }
 
 /**
-* print_err - prints an error message
-* @info: the parameter & return info struct
-* @estr: string containing specified error type
-* Return: 0 if no numbers in string, converted number otherwise
+* print_err - print an error msg
+* @info: parameter & return info structure
+* @estr: str containing specified error type
+* Return: 0 if no nos in str, conv no otherwise
 *        -1 on error
 */
 void print_err(info_t *info, char *estr)
@@ -49,16 +49,16 @@ void print_err(info_t *info, char *estr)
 }
 
 /**
-* print_d - function prints a decimal (integer) number (base 10)
+* print_d - function prints a dec (int) no base 10
 * @input: the input
-* @fd: the filedescriptor to write to
+* @fd: the fdescriptor to write to
 *
-* Return: number of characters printed
+* Return: number of chars printed
 */
 int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
-	int i = 1000000000, count = 0;
+	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
@@ -72,7 +72,7 @@ int print_d(int input, int fd)
 	else
 		_abs_ = input;
 	current = _abs_;
-
+	i = 1000000000;
 	while (i > 1)
 	{
 	if (_abs_ / i)
@@ -90,10 +90,10 @@ int print_d(int input, int fd)
 }
 
 /**
-* conv_no - converter function, a clone of itoa
-* @num: number
+* conv_no - conv funct a clone of itoa
+* @num: no
 * @base: base
-* @flags: argument flags
+* @flags: arg flags
 *
 * Return: string
 */
@@ -101,8 +101,7 @@ char *conv_no(long int num, int base, int flags)
 {
 	static char *array;
 	static char buffer[50];
-	char sign = 0;
-	char *ptr;
+	char sign = 0, *ptr;
 	unsigned long n = num;
 
 	if (!(flags & CONVERT_UNSIGNED) && num < 0)
@@ -126,15 +125,16 @@ char *conv_no(long int num, int base, int flags)
 }
 
 /**
-* rm_comments - function replaces first instance of '#' with '\0'
-* @buf: address of the string to modify
+* rm_comments - func replace 1st instance of '#' with '\0'
+* @buf: add of the str to modify
 *
 * Return: Always 0;
 */
 void rm_comments(char *buf)
 {
-	int i = 0;
+	int i;
 
+	i = 0;
 	while (buf[i] != '\0')
 	{
 		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
