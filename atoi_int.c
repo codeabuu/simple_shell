@@ -53,7 +53,7 @@ int _atoi(char *s)
 {
 	int i, sign = 1, flag = 0, output;
 	unsigned int rslt = 0;
-
+i = 0;
 while (s[i] != '\0' && flag != 2)
 {
 if (s[i] == '-')
