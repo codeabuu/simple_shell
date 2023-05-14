@@ -39,14 +39,14 @@ All files used for this SHELL programs are written in C:
 
 | Filename | Meaning |
 | -------- | ----------- |
-| ` Inline.c ` | This is the builtin function.|
-| ` Error_handling.c ` | Handles errors from the program.|
-| ` User_input.c ` | prompts user inputs on console.|
-| ` Main.c ` | The header files embed.|
-| ` Text_operations.c ` | Handles strings conversion.|
-| ` Environment.c ` | The environment function.|
+| ` Inline.c ` | This is the builtin function. is used to suggest the compiler to perform inline expansion of a function, which means inserting the function code directly at the call site instead of generating a separate function call|
+| ` Error_handling.c ` | Handles errors from the program like return values, error codes, error handling functions, exception handling and assertions.|
+| ` User_input.c ` | prompts user inputs on console. This is used to validate and sanitize the input to ensure correctness and prevent potential vulnerabilities|
+| ` Main.c ` | This is the entry point of this program. This is header files embed that handles performance initialization, call other functions, handles command line arguments and perform the primary logic of the program within the main function.|
+| ` Text_operations.c ` | Handles strings conversion like case, pattern matching, string tokenization, string length, substring extraction.|
+| ` Environment.c ` | The environment variable like displaying env, iterating through environment variables, accessing environment variables.|
 | ` Exit_handling.c ` | Checks for exits handlers.|
-| ` Get_Line.c ` | accepts inputs .|
+| ` Get_Line.c ` | provides reusable functions for safety and efficiency reading lines of text in the program .|
 | ` Linked_lists1.c ` | The list function.|
 | ` Stack.c ` | Handles memory.|
 | ` Reallocation.c ` | memory allocation mechanism.|
