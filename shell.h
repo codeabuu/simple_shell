@@ -153,7 +153,7 @@ char **strtow2(char *, char);
 /* toem_reallocation.c */
 char *_setmem(char *, char, unsigned int);
 void ffree(char **);
-void *_reallocation(void *, unsigned int, unsigned int);
+void *_realloc(void *, unsigned int, unsigned int);
 
 /* toem_stack.c */
 int bfree(void **);
@@ -189,7 +189,7 @@ int _myalias(info_t *);
 
 /*toem_getLine.c */
 ssize_t get_input(info_t *);
-int _getLine(info_t *, char **, size_t *);
+int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
 
 /* toem_user_input.c */

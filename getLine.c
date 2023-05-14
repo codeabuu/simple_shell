@@ -19,9 +19,9 @@ ssize_t input_buffer(info_t *info, char **buf, size_t *len)
 		*buf = NULL;
 		signal(SIGINT, sigintHandler);
 #if USE_GETLINE
-		r = getLine(buf, &len_p, stdin);
+		r = getline(buf, &len_p, stdin);
 #else
-		r = _getLine(info, buf, &len_p);
+		r = _getline(info, buf, &len_p);
 #endif
 		if (r > 0)
 		{
@@ -64,12 +64,12 @@ ssize_t get_input(info_t *info)
 		j = i; /* init new iterator to current buf position */
 		p = buf + i; /* get pointer for return */
 
-		for (check_chain(info, buf, &j, i, len); j < len; j++)
+		check_chain(info, buf, &j, i, len);
+		for (; j < len; j++)
 		{
 			if (is_chain(info, buf, &j))
 				break;
 		}
-
 		i = j + 1; /* increment past nulled ';'' */
 		if (i >= len) /* reached end of buffer? */
 		{
@@ -133,7 +133,7 @@ int _getline(info_t *info, char **pointer, size_t *length)
 
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
-	new_p = realloc(p, s, s ? s + k : k + 1);
+	new_p = _realloc(p, s, s ? s + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE! */
 		return (p ? free(p), -1 : -1);
 
