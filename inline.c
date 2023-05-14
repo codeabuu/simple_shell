@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
-* _myquit - exits the shell
-* @info: Structure containing potential arguments. Used to maintain
+* _myquit - will exit shell
+* @info: Struct containing potential args.
 * constant function prototype.
-* Return: exits with a given exit status
+* Return: exits with given exit status
 * (0) if info.argv[0] != "exit"
 */
 int _myquit(info_t *info)
@@ -31,8 +31,8 @@ return (-2);
 }
 
 /**
-* _mycdir - changes the current directory of the process
-* @info: Structure containing potential arguments. Used to maintain
+* _mycdir - changes current dir of the process
+* @info: Structure containing potential args.
 * constant function prototype.
 * Return: Always 0
 */
@@ -48,7 +48,7 @@ int _mycdir(info_t *info)
 	{
 		dir = _getenviron(info, "HOME=");
 		if (!dir)
-			chdir_ret = /* TODO: what should this be? */
+			chdir_ret =
 				chdir((dir = _getenviron(info, "PWD=")) ? dir : "/");
 		else
 			chdir_ret = chdir(dir);
@@ -62,7 +62,7 @@ int _mycdir(info_t *info)
 			return (1);
 		}
 		_puts(_getenviron(info, "OLDPWD=")), _putchar('\n');
-		chdir_ret = /* TODO: what should this be? */
+		chdir_ret =
 			chdir((dir = _getenviron(info, "OLDPWD=")) ? dir : "/");
 	}
 	else
@@ -81,8 +81,8 @@ int _mycdir(info_t *info)
 }
 
 /**
-* _myassist - changes the current directory of the process
-* @info: Structure containing potential arguments. Used to maintain
+* _myassist - changes current dir of the process
+* @info: Structure containing potential args.
 * constant function prototype.
 * Return: Always 0
 */
@@ -93,6 +93,6 @@ int _myassist(info_t *info)
 	arg_array = info->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)
-		_puts(*arg_array); /* temp att_unused workaround */
+		_puts(*arg_array);
 	return (0);
 }
