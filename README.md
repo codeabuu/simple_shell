@@ -34,3 +34,28 @@ All of the following files are programs written in C:
 | ' 14. Variables - Handles variable replacement, Handle the $? variable, Handle the $$ variable|
 | ' 15. Comments - A program that handles comments (#) using simple shell 1.0+ Git repository: simple shell. |
 | ' 16. File as Input - Usage: simple_shell [filename]; Your shell can take a file as command line argument. The file contains all commands line arguement; The file contains all the commands that your shell should run before exiting; The file should contain one commanf line; in this mode, the shell should not print a promptand should not read from stdin |
+## Files
+All files used for this SHELL programs are written in C:
+
+| Filename | Meaning |
+| -------- | ----------- |
+| ` Inline.c ` | This is the builtin function.|
+| ` Error_handling.c ` | Handles errors from the program.|
+| ` User_input.c ` | prompts user inputs on console.|
+| ` Main.c ` | The header files embed.|
+| ` Text_operations.c ` | Handles strings conversion.|
+| ` Environment.c ` | The environment function.|
+| ` Exit_handling.c ` | Checks for exits handlers.|
+| ` Get_Line.c ` | accepts inputs .|
+| ` Linked_lists1.c ` | The list function.|
+| ` Stack.c ` | Handles memory.|
+| ` Reallocation.c ` | memory allocation mechanism.|
+| ` Interactive-shell.c ` | Shell loop .|
+| ` lexer ` | Tokenization|
+| ` Inline1.c ` |.|
+| ` Error1_handling ` |Error. |
+| ` Get_env.v ` | Environment console.|
+| ` Narrative.c ` | History in the making. |
+| ` Linked_lists.c ` | lists. |
+| ` Parsing.c ` | Parse key. |
+| ` Shell.h ` | Shell process. |
