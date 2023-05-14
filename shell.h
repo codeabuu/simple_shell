@@ -187,9 +187,9 @@ int replace_str(char **, char *);
 int _myprev(info_t *);
 int _myalias(info_t *);
 
-/*toem_get_Line.c */
+/*toem_getLine.c */
 ssize_t get_input(info_t *);
-int _get_Line(info_t *, char **, size_t *);
+int _getLine(info_t *, char **, size_t *);
 void sigintHandler(int);
 
 /* toem_user_input.c */

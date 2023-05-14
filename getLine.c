@@ -19,9 +19,9 @@ ssize_t input_buffer(info_t *info, char **buf, size_t *len)
 		*buf = NULL;
 		signal(SIGINT, sigintHandler);
 #if USE_GETLINE
-		r = getline(buf, &len_p, stdin);
+		r = getLine(buf, &len_p, stdin);
 #else
-		r = _getline(info, buf, &len_p);
+		r = _getLine(info, buf, &len_p);
 #endif
 		if (r > 0)
 		{
@@ -133,7 +133,7 @@ int _getline(info_t *info, char **pointer, size_t *length)
 
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
-	new_p = _realloc(p, s, s ? s + k : k + 1);
+	new_p = realloc(p, s, s ? s + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE! */
 		return (p ? free(p), -1 : -1);
 
