@@ -1,24 +1,20 @@
 #include "shell.h"
 
 /**
- * _strcpy - copies a string
- * @dest: the destination
- * @source: the source
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
  *
- * Return: pointer to destination
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-char *_strcpy(char *dest, char *source)
+int _putchar(char c)
 {
-	int i;
+	static int i;
+	static char buf[WRITE_BUF_SIZE];
 
-	if (dest == source || source == 0)
-		return (dest);
-	for (i = 0; source[i]; i++)
-	{
-		dest[i] = source[i];
-	}
-	dest[i] = 0;
-	return (dest);
+	(c == BUF_FLUSH || i >= WRITE_BUF_SIZE) ? (write(1, buf, i), i = 0) : 0;
+	(c != BUF_FLUSH) ? (buf[i++] = c) : 0;
+	return (1);
 }
 
 /**
@@ -64,20 +60,23 @@ void _puts(char *str)
 		_putchar(str[i]);
 	}
 }
-
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * _strcpy - copies a string
+ * @dest: the destination
+ * @source: the source
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: pointer to destination
  */
-int _putchar(char c)
+char *_strcpy(char *dest, char *source)
 {
-	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	int i;
 
-	(c == BUF_FLUSH || i >= WRITE_BUF_SIZE) ? (write(1, buf, i), i = 0) : 0;
-	(c != BUF_FLUSH) ? (buf[i++] = c) : 0;
-	return (1);
+	if (dest == source || source == 0)
+		return (dest);
+	for (i = 0; source[i]; i++)
+	{
+		dest[i] = source[i];
+	}
+	dest[i] = 0;
+	return (dest);
 }
