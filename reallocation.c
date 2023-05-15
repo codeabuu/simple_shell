@@ -38,11 +38,11 @@ void ffree(char **pp)
 
 /**
  * _realloc - reallocates a block of memory
- * @pointer: pointer to previous malloc'ated block
+ * @pointer: pointer to previous memory allocated block
  * @old_size: byte size of previous block
  * @new_size: byte size of new block
  *
- * Return: pointer to da ol'block nameen.
+ * Return: pointer to the block names.
  */
 void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size)
 {
