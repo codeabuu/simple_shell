@@ -49,7 +49,7 @@ char *duplicate_chars(char *pathstr, int start, int stop)
 
 /**
 * find_route - finds this cmd in the PATH string
-* @info: the info struct
+* @info: the info structure
 * @pathstr: the PATH string
 * @cmd: the cmd to find
 *
