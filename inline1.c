@@ -3,7 +3,7 @@
 /**
 * _myprev - display history list, one command by line, preceded
 *              with line numbers, starting at 0.
-* @info: Struct containing potential args. Used to maintain
+* @info: Struct containing potential arguements. Used to maintain
 *        constant function prototype.
 *  Return: Always 0
 */
@@ -14,9 +14,9 @@ int _myprev(info_t *info)
 }
 
 /**
-* unset_alias - sets alias to str
+* unset_alias - sets alias to string
 * @info: parameter struct
-* @str: the str alias
+* @str: the string alias
 *
 * Return: Always 0 on success, 1 on error
 */
@@ -37,7 +37,7 @@ int unset_alias(info_t *info, char *str)
 }
 
 /**
-* set_alias - sets alias to str
+* set_alias - sets alias to string
 * @info: parameter struct
 * @str: string alias
 *
@@ -58,7 +58,7 @@ int set_alias(info_t *info, char *str)
 }
 
 /**
-* print_alias - prints an alias str
+* print_alias - prints an alias string
 * @node: the alias node
 *
 * Return: Always 0 on success, 1 on error
@@ -85,8 +85,8 @@ int print_alias(list_t *node)
 }
 
 /**
-* _myalias - mimics alias builtin (man alias)
-* @info: Struct containing potential args. maintain
+* _myalias - imitates alias builtin (man alias)
+* @info: Struct containing potential arguements. maintain
 *          constant function prototype.
 *  Return: Always 0
 */
