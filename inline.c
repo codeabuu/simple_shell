@@ -31,6 +31,23 @@ return (-2);
 }
 
 /**
+* _myassist - changes current dir of the process
+* @info: Structure containing potential args.
+* constant function prototype.
+* Return: Always 0
+*/
+int _myassist(info_t *info)
+{
+	char **arg_array;
+
+	arg_array = info->argv;
+	_puts("help call works. Function not yet implemented \n");
+	if (0)
+		_puts(*arg_array);
+	return (0);
+}
+
+/**
 * _mycdir - changes current dir of the process
 * @info: Structure containing potential args.
 * constant function prototype.
@@ -77,22 +94,5 @@ int _mycdir(info_t *info)
 		_setenv(info, "OLDPWD", _getenviron(info, "PWD="));
 		_setenv(info, "PWD", getcwd(buffer, 1024));
 	}
-	return (0);
-}
-
-/**
-* _myassist - changes current dir of the process
-* @info: Structure containing potential args.
-* constant function prototype.
-* Return: Always 0
-*/
-int _myassist(info_t *info)
-{
-	char **arg_array;
-
-	arg_array = info->argv;
-	_puts("help call works. Function not yet implemented \n");
-	if (0)
-		_puts(*arg_array);
 	return (0);
 }
