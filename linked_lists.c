@@ -140,13 +140,11 @@ void free_list(list_t **head_ptr)
 
 	if (!head_ptr || !*head_ptr)
 		return;
-	node = head;
-	while (node)
+	for (node = head; node; node = next_node)
 	{
 		next_node = node->next;
 		free(node->str);
 		free(node);
-		node = next_node;
 	}
 	*head_ptr = NULL;
 }
