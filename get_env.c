@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * get_environ - return string array copy of our environ
- * @info: Structure containing potential args. Used to maintain
+ * get_environ - return str array copy of our environ
+ * @info: Structure containing potential args. maintain
  *          constant function prototype.
  * Return: Always 0
  */
@@ -32,8 +32,7 @@ int _unsetenv(info_t *info, char *var)
 
 	if (!node || !var)
 		return (0);
-
-	while (node)
+	for (node = info->env; node != NULL; node = node->next)
 	{
 		p = starts_with(node->str, var);
 		if (p && *p == '=')
@@ -43,18 +42,17 @@ int _unsetenv(info_t *info, char *var)
 			node = info->env;
 			continue;
 		}
-		node = node->next;
 		i++;
 	}
 	return (info->env_changed);
 }
 
 /**
- * _setenv - Initialize a new environment variable,
+ * _setenv - Initialize a new env var,
  *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
+ * @info: Structure containing potential args. maintain
  *        constant function prototype.
- * @var: the string env var property
+ * @var: the string environment var property
  * @value: the string env var value
  *  Return: Always 0
  */
@@ -73,8 +71,8 @@ int _setenv(info_t *info, char *var, char *value)
 	_strcpy(buf, var);
 	_strcat(buf, "=");
 	_strcat(buf, value);
-	node = info->env;
-	while (node)
+
+	for (node = info->env; node; node = node->next)
 	{
 		p = starts_with(node->str, var);
 		if (p && *p == '=')
@@ -84,7 +82,6 @@ int _setenv(info_t *info, char *var, char *value)
 			info->env_changed = 1;
 			return (0);
 		}
-		node = node->next;
 	}
 	add_node_end(&(info->env), buf, 0);
 	free(buf);
