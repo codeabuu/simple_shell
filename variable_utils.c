@@ -11,30 +11,46 @@
 int is_chain(info_t *info, char *buf, size_t *p)
 {
 	size_t j = *p;
+	int found = 0;
 
-	if (buf[j] == '|' && buf[j + 1] == '|')
+	switch (buf[j])
 	{
-		buf[j] = 0;
-		j++;
-		info->cmd_buf_type = CMD_OR;
+		case '|':
+			if (buf[j + 1] == '|')
+			{
+				buf[j] = 0;
+				j++;
+				info->cmd_buf_type = CMD_OR;
+				found = 1;
+			}
+			break;
+		case '&':
+			if (buf[j + 1] == '&')
+			{
+				buf[j] = 0;
+				j++;
+				info->cmd_buf_type = CMD_AND;
+				found = 1;
+			}
+			break;
+		case ';':
+			buf[j] = 0;
+			info->cmd_buf_type = CMD_CHAIN;
+			found = 1;
+			break;
+		default:
+			break;
 	}
-	else if (buf[j] == '&' && buf[j + 1] == '&')
+	if (found)
 	{
-		buf[j] = 0;
-		j++;
-		info->cmd_buf_type = CMD_AND;
-	}
-	else if (buf[j] == ';') /* found end of this command */
-	{
-		buf[j] = 0; /* replace semicolon with null */
-		info->cmd_buf_type = CMD_CHAIN;
+		*p = j;
+		return (1);
 	}
 	else
+	{
 		return (0);
-	*p = j;
-	return (1);
+	}
 }
-
 /**
  * check_chain - checks we should continue chaining based on last status
  * @info: the parameter structure
