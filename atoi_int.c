@@ -17,12 +17,13 @@ int interact(info_t *info)
 */
 int is_delimeter(char c, char *delim)
 {
-	for (; *delim != '\0'; delim++)
+	while (*delim)
 	{
 		if (*delim == c)
 		{
 			return (1);
 		}
+		delim++;
 	}
 	return (0);
 }
