@@ -19,11 +19,10 @@ int is_delimeter(char c, char *delim)
 {
 	while (*delim)
 	{
-		if (*delim == c)
+		if (*delim++ == c)
 		{
 			return (1);
 		}
-		delim++;
 	}
 	return (0);
 }
