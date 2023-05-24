@@ -20,7 +20,7 @@ exitconfirm = _eratoi(info->argv[1]);
 if (exitconfirm == -1)
 {
 info->status = 2;
-print_err(info, "Illegal number: ");
+print_err(info, "number is not allowed or illegal: ");
 _eputs(info->argv[1]);
 _eputchar('\n');
 return (1);
