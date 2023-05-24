@@ -7,7 +7,6 @@
 */
 int interact(info_t *info)
 {
-	/* will return true if shell is interactive mode */
 	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 /**
@@ -18,14 +17,12 @@ int interact(info_t *info)
 */
 int is_delimeter(char c, char *delim)
 {
-	/* check if char is delimiter */
-	while (*delim != '\0')
+	for (; *delim != '\0'; delim++)
 	{
 		if (*delim == c)
 		{
 			return (1);
 		}
-		delim++;
 	}
 	return (0);
 }
