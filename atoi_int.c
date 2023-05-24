@@ -33,7 +33,6 @@ int is_delimeter(char c, char *delim)
 */
 int _isalpha(int c)
 {
-	/* check for alphabetic characters */
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	else
@@ -46,7 +45,6 @@ int _isalpha(int c)
 */
 int _atoi(char *s)
 {
-	/* converts a string to an integer */
 	int i, sign = 1, flag = 0, output;
 	unsigned int rslt = 0;
 
